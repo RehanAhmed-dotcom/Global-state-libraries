@@ -17,7 +17,13 @@ const Screen1 = () => {
     email: 'rehanahmed0406@gmail.com',
     gender: 'Male',
   };
-  const {counted, increments, decrements} = useContext(CounterContext);
+  interface CounterContextType {
+    counted: number;
+    increments: () => void;
+    decrements: () => void;
+  }
+  const {counted, increments, decrements} =
+    useContext<CounterContextType>(CounterContext);
   //   const {count, userData} = useSelector(state => state.counter);
   //   const dispatch = useDispatch();
   return (
@@ -36,7 +42,7 @@ const Screen1 = () => {
         style={{height: 50, width: 100, backgroundColor: 'red'}}>
         <Text>dec </Text>
       </TouchableOpacity>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => dispatch(decrement())}
         style={{
           height: 50,
@@ -55,7 +61,7 @@ const Screen1 = () => {
           backgroundColor: 'yellow',
         }}>
         <Text>Add User</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       {/* <Text>User Name:{userData?.name}</Text> */}
     </View>
   );
